@@ -220,6 +220,16 @@ function build() {
         (cd "${OPENSHIFT_REPO_DIR}"; npm install --production)
     fi
 
+    # If bower is detected install the bower dependencies
+    if [ -f "${OPENSHIFT_REPO_DIR}"/bower.json ]; then
+        (cd "${OPENSHIFT_REPO_DIR}"; bower install)
+    fi
+
+    # If there is a grunt file, run $ grunt prod
+    if [ -f "${OPENSHIFT_REPO_DIR}"/Gruntfile.js ]; then
+        (cd "${OPENSHIFT_REPO_DIR}"; grunt prod)
+    fi
+
 }
 
 function is_supervisor_running() {
