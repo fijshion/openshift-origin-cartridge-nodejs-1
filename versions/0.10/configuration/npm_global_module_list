@@ -24,5 +24,3 @@ node-static
 qs
 supervisor
 traverse
-bower
-grunt-cli
