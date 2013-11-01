@@ -1,15 +1,24 @@
-# OpenShift NodeJS Cartridge
+# Purpose
+Openshift already has [Node.js](http://nodejs.org/) cartridge.  So why use this one?
 
-The `nodejs` cartridge provides [Node.js](http://nodejs.org/) on OpenShift.
+* [Grunt](http://gruntjs.com/) support
+* [Bower](http://bower.io/) support
+* Adds --production so devDependencies aren't pulled in
+* Up to date with the latest .10.x release
+* Not every OpenShift Enterprise is going to have Node.js as a default cartridge.
+
+# Usage
 
 To deploy this cartridge with the cartridge reflector you can execute the following command
-`rhc create-app <app name> "http://cartreflect-claytondev.rhcloud.com/reflect?github=wshearn/openshift-origin-cartridge-nodejs"`
+`rhc create-app <app name> "http://cartreflect-claytondev.rhcloud.com/reflect?github=engineersamuel/openshift-origin-cartridge-nodejs"`
 
 ## Template Repository Layout
 
     node_modules/            Any Node modules packaged with the app [1]
     deplist.txt              Deprecated.
     package.json             npm package descriptor.
+    Gruntfile.js			  Optional Grunt configuration, `grunt prod` is executed in ./bin/control
+    bower.json				  Optional bower configuration, `bower install` is executed in ./bin/control
     npm_global_module_list   List of globally installed node modules (on OpenShift)
     .openshift/              Location for OpenShift specific files
       action_hooks/          See the Action Hooks documentation [2]
@@ -38,12 +47,6 @@ If you just wish to install module(s) from the npm registry
 ([npmjs.org](https://npmjs.org/)), you
 can specify the module name(s) and versions in your application's
 `package.json` file.
-
-
-#### deplist.txt
-
-This functionality has been deprecated and will soon go away.
-package.json is the preferred method to add dependencies.
 
 
 #### package.json
