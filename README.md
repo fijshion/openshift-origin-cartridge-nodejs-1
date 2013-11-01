@@ -4,7 +4,7 @@ Openshift already has [Node.js](http://nodejs.org/) cartridge.  So why use this 
 * [Grunt](http://gruntjs.com/) support
 * [Bower](http://bower.io/) support
 * Adds --production so devDependencies aren't pulled in
-* Up to date with the latest .10.x release
+* Up to date with the latest .10.x release (Currently using 0.10.21)
 * Not every OpenShift Enterprise is going to have Node.js as a default cartridge.
 
 # Usage
