@@ -115,7 +115,7 @@ function start() {
     fi
 
     if [ -f "$OPENSHIFT_REPO_DIR/.openshift/markers/hot_deploy" ]; then
-        nohup supervisor -e 'node|js|coffee' -- $script_n_opts  >> $logf 2>&1 &
+        nohup supervisor -e 'node|js|coffee' -p ${OPENSHIFT_NODEJS_POLL_INTERVAL:-10000} -- $script_n_opts  >> $logf 2>&1 &
     else
         nohup $executor_cmdline >> $logf 2>&1 &
     fi
