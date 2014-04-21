@@ -24,3 +24,8 @@ node-static
 qs
 supervisor
 traverse
+
+# bower and grunt
+bower
+grunt
+grunt-cli
